@@ -4,7 +4,7 @@ from db import get_db_connection, init_db
 import random, string
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'
+
 
 init_db()
 
@@ -71,7 +71,6 @@ def login():
         if user and check_password_hash(user['password'], password):
             session['user_id'] = user['id']
             return redirect('/')
-        flash('Invalid credentials')
     return render_template('login.html')
 
 
